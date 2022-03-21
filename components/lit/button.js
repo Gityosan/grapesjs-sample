@@ -1,8 +1,8 @@
-import { html, LitElement } from 'https://cdn.skypack.dev/lit'
+import { html, LitElement } from 'lit'
 
-export class MyElement extends LitElement {
+export default class MyElement extends LitElement {
   static properties = {
-    condition: {}
+    condition: { type: Boolean }
   }
 
   constructor() {
