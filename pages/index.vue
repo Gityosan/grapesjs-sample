@@ -1,0 +1,3 @@
+<template>
+  <GrapesTemplate></GrapesTemplate>
+</template>
