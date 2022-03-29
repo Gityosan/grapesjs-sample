@@ -1,6 +1,3 @@
-import Sass from 'sass'
-const CopyFilePlugin = require('copy-webpack-plugin')
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -34,7 +31,8 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+     '@nuxt/postcss8'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -98,30 +96,5 @@ export default {
     //     )
     //   }
     // },
-    loaders: {
-      module: {
-        output: {
-          // 出力設定
-          path: `${__dirname}/dist/_nuxt` // 絶対パス
-          // filename: 'js/[name].[contenthash].bundle.js' // 出力するファイル名
-        },
-        rules: [
-          {
-            test: /\.js$/i,
-            use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[ext]'
-                }
-              }
-            ]
-          }
-        ]
-      },
-      scss: {
-        implementation: Sass
-      }
-    }
   }
 }
