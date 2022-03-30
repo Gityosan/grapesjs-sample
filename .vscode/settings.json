@@ -1,42 +1,20 @@
-
-
 {
-  "files.exclude": {
-    "amplify/.config": true,
-    "amplify/**/*-parameters.json": true,
-    "amplify/**/amplify.state": true,
-    "amplify/**/transform.conf.json": true,
-    "amplify/#current-cloud-backend": true,
-    "amplify/backend/amplify-meta.json": true,
-    "amplify/backend/awscloudformation": true
-  },
   "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
   "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
   "editor.tabSize": 2,
-  "vetur.format.enable": false,
+  // "editor.hover.enabled": false,
+  "editor.guides.bracketPairs": true,
   "git.ignoreLimitWarning": true,
-  // ESLint
-  "eslint.workingDirectories": ["./"],
-  "eslint.options": {
-    "configFile": "./.eslintrc.js"
-  },
-  "eslint.validate": [
-    "javascript"
-  ],
-  // stylelint
-  "stylelint.enable": true,
-  "stylelint.configBasedir": ".",
-  "stylelint.validate": ["css"],
-  "css.validate": false,
-  "scss.validate": false,
-  // Lint On Save
-  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true
   },
-  "prettier.trailingComma": "all",
-  "eslint.format.enable": true,
-  "editor.guides.bracketPairs": true
+
+  "vetur.format.enable": false,
+
+  "stylelint.validate": ["css", "scss"],
+  "css.validate": false,
+  "scss.validate": false
 }

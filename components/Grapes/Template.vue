@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <div class="panel__top">
-      <div class="panel__basic-actions"></div>
-    </div>
+  <div class="d-flex">
     <div id="gjs">
       <grapesjs-frame>
         <flex-div>
@@ -12,22 +9,22 @@
           <border-box
             text="品目・品名"
             width="400"
-            backgroundColor="#ff963b"
+            backgroundColor="#F3E9DD"
           ></border-box>
           <border-box
             text="数量"
             width="100"
-            backgroundColor="#ff963b"
+            backgroundColor="#F3E9DD"
           ></border-box>
           <border-box
             text="単価"
             width="100"
-            backgroundColor="#ff963b"
+            backgroundColor="#F3E9DD"
           ></border-box>
           <border-box
             text="金額"
             width="100"
-            backgroundColor="#ff963b"
+            backgroundColor="#F3E9DD"
           ></border-box>
         </flex-div>
         <flex-div v-for="i in 4" :key="i" height="42">
@@ -42,18 +39,39 @@
         </flex-div> -->
       </grapesjs-frame>
     </div>
-    <div id="blocks"></div>
+    <v-card class="panels my-4 mr-4" flat>
+      <v-tabs
+        v-model="tab"
+        centered
+        light
+        icons-and-text
+        color="#F3E9DD"
+        slider-color="#DAB88B"
+      >
+        <v-tab>
+          <v-icon color="#DAB88B">mdi-cog-outline</v-icon>
+        </v-tab>
+        <v-tab>
+          <v-icon color="#DAB88B">mdi-apps</v-icon>
+        </v-tab>
+      </v-tabs>
+      <div v-show="tab === 1" id="traits"></div>
+      <div v-show="tab === 0" id="blocks"></div>
+    </v-card>
   </div>
 </template>
 <script>
 import grapesjs from 'grapesjs'
 import 'grapesjs/dist/css/grapes.min.css'
+import '@@/assets/grapesjs-fix.scss'
 import '@@/src/lit/index'
 import grapesjsConfig from '@@/src/grapes/index'
 export default {
   data: () => ({
     editor: null,
-    sample: 'sample'
+    tab: true,
+    sample: 'sample',
+    svg: '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M3,5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5M5,5V19H19V5H5M11,7H13A2,2 0 0,1 15,9V10H13V9H11V15H13V14H15V15A2,2 0 0,1 13,17H11A2,2 0 0,1 9,15V9A2,2 0 0,1 11,7Z" /></svg>'
   }),
   mounted() {
     this.editor = grapesjs.init({
@@ -63,10 +81,11 @@ export default {
       // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
       fromElement: true,
       // Size of the editor
-      height: '90vh',
-      width: '-webkit-fill-available',
+      height: 'calc(100vh - 64px)',
+      width: '70%',
       // Disable the storage manager for the moment
       storageManager: false,
+      deviceManager: false,
       plugins: grapesjsConfig,
 
       // 各種便利ボタンパネル設定
@@ -77,73 +96,73 @@ export default {
           //   id: 'panel-top',
           //   el: '.panel__top'
           // },
-          {
-            id: 'options',
-            buttons: [
-              // {
-              //   active: true,
-              //   id: 'sw-visibility',
-              //   className: 'fa fa-square-o',
-              //   command: 'sw-visibility',
-              //   context: 'sw-visibility',
-              //   attributes: { title: 'View components' }
-              // },
-              // {
-              //   id: 'preview',
-              //   className: 'fa fa-eye',
-              //   command: 'preview',
-              //   context: 'preview',
-              //   attributes: { title: 'Preview' }
-              // },
-              // {
-              //   id: 'fullscreen',
-              //   className: 'fa fa-arrows-alt',
-              //   command: 'fullscreen',
-              //   context: 'fullscreen',
-              //   attributes: { title: 'Fullscreen' }
-              // },
-              {
-                id: 'export-template',
-                className: 'fa fa-code',
-                command: 'export-template',
-                attributes: { title: 'View code' }
-              }
-            ]
-          },
-          {
-            id: 'views',
-            buttons: [
-              {
-                id: 'open-tm',
-                className: 'fa fa-cog',
-                command: 'open-tm',
-                active: true,
-                togglable: 0,
-                attributes: { title: 'Settings' }
-              },
-              {
-                id: 'open-sm',
-                className: 'fa fa-paint-brush',
-                command: 'open-sm',
-                togglable: 0,
-                attributes: { title: 'Open Style Manager' }
-              },
-              // {
-              //   id: 'open-layers',
-              //   className: 'fa fa-bars',
-              //   command: 'open-layers',
-              //   togglable: 0,
-              //   attributes: { title: 'Open Layer Manager' }
-              // }
-              {
-                id: 'open-blocks',
-                className: 'fa fa-th-large',
-                command: 'open-blocks',
-                togglable: 0,
-                attributes: { title: 'Open Blocks' }
-              }
-            ]
-          }
+          // {
+          //   id: 'options',
+          //   buttons: [
+          // {
+          //   active: true,
+          //   id: 'sw-visibility',
+          //   className: 'fa fa-square-o',
+          //   command: 'sw-visibility',
+          //   context: 'sw-visibility',
+          //   attributes: { title: 'View components' }
+          // },
+          // {
+          //   id: 'preview',
+          //   className: 'fa fa-eye',
+          //   command: 'preview',
+          //   context: 'preview',
+          //   attributes: { title: 'Preview' }
+          // },
+          // {
+          //   id: 'fullscreen',
+          //   className: 'fa fa-arrows-alt',
+          //   command: 'fullscreen',
+          //   context: 'fullscreen',
+          //   attributes: { title: 'Fullscreen' }
+          // },
+          //     {
+          //       id: 'export-template',
+          //       className: 'fa fa-code',
+          //       command: 'export-template',
+          //       attributes: { title: 'View code' }
+          //     }
+          //   ]
+          // }
+          // {
+          //   id: 'views',
+          //   buttons: [
+          //     {
+          //       id: 'open-tm',
+          //       className: 'fa fa-cog',
+          //       command: 'open-tm',
+          //       active: true,
+          //       togglable: 0,
+          //       attributes: { title: 'Settings' }
+          //     },
+          //     {
+          //       id: 'open-sm',
+          //       className: 'fa fa-paint-brush',
+          //       command: 'open-sm',
+          //       togglable: 0,
+          //       attributes: { title: 'Open Style Manager' }
+          //     },
+          // {
+          //   id: 'open-layers',
+          //   className: 'fa fa-bars',
+          //   command: 'open-layers',
+          //   togglable: 0,
+          //   attributes: { title: 'Open Layer Manager' }
+          // }
+          //     {
+          //       id: 'open-blocks',
+          //       className: 'fa fa-th-large',
+          //       command: 'open-blocks',
+          //       togglable: 0,
+          //       attributes: { title: 'Open Blocks' }
+          //     }
+          //   ]
+          // }
           // {
           //   id: 'basic-actions',
           //   // el: '.panel__basic-actions',
@@ -181,6 +200,10 @@ export default {
           // }
         ]
       },
+      styleManager: false,
+      traitManager: {
+        appendTo: '#traits'
+      },
       // コンポーネント登録場所
       blockManager: {
         appendTo: '#blocks',
@@ -189,7 +212,8 @@ export default {
             id: 'text',
             label: '<b>シンプルなテキスト</b>',
             attributes: { class: 'gjs-block-section' },
-            content: '<div data-gjs-type="text">Insert your text here</div>'
+            content: '<div data-gjs-type="text">Insert your text here</div>',
+            media: this.svg
           }
           // {
           //   id: 'image',
@@ -211,14 +235,7 @@ export default {
           // }
         ]
       }
-      // canvas: {
-      //   scripts: [],
-      //   styles: [
-      //     'https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css'
-      //   ]
-      // }
     })
-    // this.editor.Css.addRules('.gjs-blocks-cs { background-color: #ffffff}')
   },
   methods: {
     toHtml() {
@@ -227,39 +244,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-/* Let's highlight canvas boundaries */
-
-#gjs {
-  border: 3px solid #444;
-}
-
-/* Reset some default styling */
-.gjs-cv-canvas {
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.gjs-block {
-  width: auto;
-  height: auto;
-  min-height: auto;
-}
-
-.gjs-blocks-c {
-  background-color: #fff;
-}
-
-.panel__top {
-  position: initial;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-}
-
-.panel__basic-actions {
-  position: initial;
-}
-</style>

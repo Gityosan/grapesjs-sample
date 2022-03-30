@@ -10,11 +10,11 @@ export default class Frame extends LitElement {
     this.styles = html`
       <style>
         .frame {
-          width: calc(100vw - 60px);
+          width: calc(100vw - 100px);
           min-height: calc(100vh - 60px);
           margin: 30px;
           padding: 10px;
-          background-color: #c2c2c2;
+          background-color: #fdf6ec;
           overflow: auto;
         }
       </style>
