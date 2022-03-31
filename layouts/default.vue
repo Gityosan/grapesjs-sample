@@ -45,11 +45,12 @@
         <v-list-item
           v-for="(item, index) in 100"
           :key="item"
-          color="#ffffff"
           :class="$vuetify.breakpoint.xs ? '' : 'mt-3'"
         >
           <v-list-item-icon>
-            <v-avatar color="#ffffff" size="24">{{ index + 1 }}</v-avatar>
+            <v-avatar color="#89b577" size="24" style="color: #fff">
+              {{ index + 1 }}
+            </v-avatar>
             <!-- <v-icon color="#ffffff">
               {{ item.icon }}
             </v-icon> -->
