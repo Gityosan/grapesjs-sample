@@ -3,6 +3,7 @@ import { html, LitElement } from 'lit'
 export default class Title extends LitElement {
   static properties = {
     text: { type: String },
+    textAlign: { type: String },
     backgroundColor: { type: String },
     fontSize: { type: Number },
     fontColor: { type: String },
@@ -13,6 +14,7 @@ export default class Title extends LitElement {
   constructor() {
     super()
     this.text = 'タイトル'
+    this.textAlign = 'center'
     this.width = 100
     this.height = 40
     this.fontSize = 36
@@ -32,10 +34,12 @@ export default class Title extends LitElement {
           display: inline-block;
           width: ${this.width}px;
           height: ${this.height}px;
+          text-align: ${this.textAlign};
           line-height: ${this.height}px;
           font-size: ${this.fontSize}px;
           border-bottom: 1px solid black;
           background-color: ${this.backgroundColor};
+          margin: 0;
         }
       </style>
     `
@@ -46,7 +50,8 @@ export default class Title extends LitElement {
       cp.has('fontSize') ||
       cp.has('width') ||
       cp.has('backgroundColor') ||
-      cp.has('height')
+      cp.has('height') ||
+      cp.has('textAlign')
     ) {
       this.styles = this.returnStyle()
     }

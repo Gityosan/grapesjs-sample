@@ -38,6 +38,21 @@ export default function formTitle(editor) {
           },
           {
             type: 'select',
+            name: 'textAlign',
+            label: '揃え位置',
+            default: 'center',
+            options: [
+              { id: 'start', name: 'start' },
+              { id: 'end', name: 'end' },
+              { id: 'center', name: 'center' },
+              { id: 'left', name: 'left' },
+              { id: 'right', name: 'right' },
+              { id: 'justify', name: 'justify' },
+              { id: 'unset', name: 'unset' }
+            ]
+          },
+          {
+            type: 'select',
             name: 'backgroundColor',
             label: '背景色',
             default: '#ffffff',

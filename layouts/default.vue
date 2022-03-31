@@ -2,7 +2,7 @@
   <v-app class="bg">
     <v-app-bar
       app
-      color="#DAB88B"
+      color="#4C7D38"
       light
       flat
       dense
@@ -20,10 +20,15 @@
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon color="#ffffff">mdi-download</v-icon>
+        <v-icon color="#ffffff" @click="$store.dispatch('downloadPDF')">
+          mdi-download
+        </v-icon>
       </v-btn>
       <v-btn icon>
         <v-icon color="#ffffff">mdi-checkbox-marked-circle-outline</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon color="#ffffff">mdi-logout-variant</v-icon>
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer
@@ -31,31 +36,30 @@
       app
       light
       :permanent="$vuetify.breakpoint.smAndUp"
-      color="#DAB88B"
+      color="#4C7D38"
       height="100%"
       width="200px"
       expand-on-hover
     >
       <v-list dense nav rounded>
         <v-list-item
-          v-for="item in pages"
-          :key="item.title"
-          :to="item.path"
-          nuxt
+          v-for="(item, index) in 100"
+          :key="item"
           color="#ffffff"
           :class="$vuetify.breakpoint.xs ? '' : 'mt-3'"
         >
           <v-list-item-icon>
-            <v-icon color="#ffffff">
+            <v-avatar color="#ffffff" size="24">{{ index + 1 }}</v-avatar>
+            <!-- <v-icon color="#ffffff">
               {{ item.icon }}
-            </v-icon>
+            </v-icon> -->
           </v-list-item-icon>
           <v-list-item-title style="color: #fff" class="font-weight-bold">
-            {{ item.title }}
+            テンプレート{{ index + 1 }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
-      <template #append>
+      <!-- <template #append>
         <v-list dense nav rounded>
           <v-list-item
             v-if="$vuetify.breakpoint.xs"
@@ -67,16 +71,8 @@
             </v-list-item-icon>
             <v-list-item-title>メニューを閉じる</v-list-item-title>
           </v-list-item>
-          <v-list-item color="#ffffff">
-            <v-list-item-icon>
-              <v-icon color="#ffffff">mdi-logout-variant</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title style="color: #fff" class="font-weight-bold">
-              ログアウト
-            </v-list-item-title>
-          </v-list-item>
         </v-list>
-      </template>
+      </template> -->
     </v-navigation-drawer>
     <v-main>
       <Nuxt />
@@ -90,12 +86,12 @@ export default {
     drawer: false,
     pages: [
       {
-        title: 'トップ',
+        title: 'テンプレート',
         icon: 'mdi-home',
         path: '/'
       },
       {
-        title: '設定',
+        title: 'テンプレート',
         icon: 'mdi-cog-outline',
         path: '/setting'
       }
@@ -106,7 +102,7 @@ export default {
 <style lang="scss" scoped>
 .bg {
   color: #fff;
-  background-color: #f3e9dd;
+  background-color: #dee06d;
 }
 
 .font_color {

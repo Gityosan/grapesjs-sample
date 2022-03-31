@@ -44,6 +44,7 @@ export default class TextBox extends LitElement {
           background-color: ${this.backgroundColor};
           border: 1px solid black;
           margin: 0;
+          overflow: hidden;
         }
       </style>
     `
