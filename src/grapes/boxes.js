@@ -1,11 +1,14 @@
 export default function borderBox(editor) {
   const config = editor.getConfig()
   config.forceClass = 0
-  editor.BlockManager.add('border-box', {
+  editor.BlockManager.add('border-boxes', {
     id: 'border-box',
-    label: '<b>シンプルなボックス</b>',
-    content: `<border-box></border-box>`,
-    media: "<img src='/cube-outline.svg' />"
+    label: '<b>複数ボックス</b>',
+    content:
+      '<flex-div height="42">' +
+      '<border-box></border-box>'.repeat(3) +
+      '</flex-div>',
+    media: "<img src='/chart-tree.svg' />"
   })
   editor.DomComponents.addType('border-box', {
     isComponent: (el) => el.tagName === 'BORDER-BOX',

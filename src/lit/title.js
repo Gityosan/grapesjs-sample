@@ -8,7 +8,8 @@ export default class Title extends LitElement {
     fontSize: { type: Number },
     fontColor: { type: String },
     width: { type: Number },
-    height: { type: Number }
+    height: { type: Number },
+    underbar: { type: String }
   }
 
   constructor() {
@@ -20,6 +21,7 @@ export default class Title extends LitElement {
     this.fontSize = 36
     this.fontColor = 'transparent'
     this.backgroundColor = '#ffffff'
+    this.underbar = '1px solid black'
   }
 
   connectedCallback() {
@@ -37,7 +39,7 @@ export default class Title extends LitElement {
           text-align: ${this.textAlign};
           line-height: ${this.height}px;
           font-size: ${this.fontSize}px;
-          border-bottom: 1px solid black;
+          border-bottom: ${this.underbar};
           background-color: ${this.backgroundColor};
           margin: 0;
         }

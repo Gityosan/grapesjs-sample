@@ -1,5 +1,5 @@
 import '@@/src/lit/simple'
-import '@@/src/lit/button'
+import '@@/src/lit/checkbox'
 import '@@/src/lit/box'
 import '@@/src/lit/flexDiv'
 import '@@/src/lit/frame'

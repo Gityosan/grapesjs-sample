@@ -5,7 +5,8 @@ export default function simpleGreeting(editor) {
     id: 'simple-greeting',
     label: 'simple-greeting',
     // content: '<div data-gjs-type="text">Insert your text here</div>'
-    content: `<simple-greeting></simple-greeting>`
+    content: `<simple-greeting></simple-greeting>`,
+    media: "<img src='/pencil.svg' />"
   })
   editor.DomComponents.addType('simple-greeting', {
     isComponent: (el) => el.tagName === 'SIMPLE-GREETING',

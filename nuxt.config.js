@@ -4,8 +4,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - mash-grape',
-    title: 'mash-grape',
+    titleTemplate: '%s/grapesjs-pdf-builder',
+    title: 'top',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,6 +21,11 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
+  publicRuntimeConfig: {
+    MICROCMS_API_KEY: process.env.MICROCMS_API_KEY,
+    MICROCMS_API_URL: process.env.MICROCMS_API_URL
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -32,7 +37,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-     '@nuxt/postcss8'
+    '@nuxt/postcss8'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -44,8 +49,15 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000',
+      pathRewrite: { '^/api': '' }
+    }
+  },
+  axios: {
+    proxy: true
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {

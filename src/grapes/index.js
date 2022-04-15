@@ -1,14 +1,16 @@
-import simpleGreeting from '@@/src/grapes/simple'
-import sampleButton from '@@/src/grapes/button'
+// import simpleGreeting from '@@/src/grapes/simple'
+import checkbox from '@@/src/grapes/checkbox'
 import borderBox from '@@/src/grapes/box'
+import borderBoxes from '@@/src/grapes/boxes'
 import flexDiv from '@@/src/grapes/flexDiv'
-import grapesjsFrame from '@@/src/grapes/frame'
+import layoutFrame from '@@/src/grapes/frame'
 import formTitle from '@@/src/grapes/title'
 export default [
-  simpleGreeting,
-  sampleButton,
+  // simpleGreeting,
+  checkbox,
   borderBox,
+  borderBoxes,
   flexDiv,
-  grapesjsFrame,
+  layoutFrame,
   formTitle
 ]

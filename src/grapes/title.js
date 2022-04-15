@@ -4,7 +4,8 @@ export default function formTitle(editor) {
   editor.BlockManager.add('form-title', {
     id: 'form-title',
     label: '<b>タイトル</b>',
-    content: `<form-title></form-title>`
+    content: `<form-title></form-title>`,
+    media: "<img src='/pencil.svg' />"
   })
   editor.DomComponents.addType('form-title', {
     isComponent: (el) => el.tagName === 'FORM-TITLE',
@@ -66,6 +67,14 @@ export default function formTitle(editor) {
               { id: '#ff963b', name: 'オレンジ' },
               { id: 'transparent', name: '透明' }
             ]
+          },
+          {
+            type: 'checkbox',
+            name: 'underbar',
+            label: '下線の有無',
+            valueTrue: '1px solid black',
+            valueFalse: 'none',
+            default: '1px solid black'
           }
         ],
         editable: true

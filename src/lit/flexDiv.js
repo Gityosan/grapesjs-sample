@@ -1,7 +1,8 @@
-import { html, css, LitElement } from 'lit'
+import { html, LitElement } from 'lit'
 
 export default class FlexDiv extends LitElement {
   static properties = {
+    width: { type: Number },
     height: { type: Number },
     justifyContent: { type: String },
     alignItems: { type: String },
@@ -11,12 +12,12 @@ export default class FlexDiv extends LitElement {
 
   constructor() {
     super()
+    this.width = 100
     this.height = 200
     this.justifyContent = 'center'
     this.alignItems = 'center'
     this.flexDirection = 'row'
     this.flexWrap = 'wrap'
-    // this.styles = this.returnStyle()
   }
 
   connectedCallback() {
@@ -28,8 +29,8 @@ export default class FlexDiv extends LitElement {
     return html`
       <style>
         .flex {
-          width: 100%;
-          min-width: 10px;
+          width: ${this.width}%;
+          min-width: 50px;
           display: flex;
           justify-content: ${this.justifyContent};
           align-items: ${this.alignItems};
@@ -47,6 +48,7 @@ export default class FlexDiv extends LitElement {
   // cp=changedProperties
   willUpdate(cp) {
     if (
+      cp.has('width') ||
       cp.has('height') ||
       cp.has('justifyContent') ||
       cp.has('alignItems') ||

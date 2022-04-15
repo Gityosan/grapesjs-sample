@@ -6,7 +6,8 @@ export default class TextBox extends LitElement {
     textAlign: { type: String },
     backgroundColor: { type: String },
     width: { type: Number },
-    height: { type: Number }
+    height: { type: Number },
+    border: { type: String }
   }
 
   constructor() {
@@ -16,6 +17,7 @@ export default class TextBox extends LitElement {
     this.height = 40
     this.textAlign = 'center'
     this.backgroundColor = '#ffffff'
+    this.border = '1px solid black'
   }
 
   render() {
@@ -42,7 +44,7 @@ export default class TextBox extends LitElement {
           font-size: 20px;
           color: #262626;
           background-color: ${this.backgroundColor};
-          border: 1px solid black;
+          border: ${this.border};
           margin: 0;
           overflow: hidden;
         }
@@ -52,7 +54,12 @@ export default class TextBox extends LitElement {
 
   // cp=changedProperties
   willUpdate(cp) {
-    if (cp.has('width') || cp.has('textAlign') || cp.has('height')) {
+    if (
+      cp.has('border') ||
+      cp.has('width') ||
+      cp.has('textAlign') ||
+      cp.has('height')
+    ) {
       this.styles = this.returnStyle()
     }
   }

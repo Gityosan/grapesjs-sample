@@ -24,6 +24,7 @@
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "lit": "^2.0.2",
+    "nodemailer": "^6.7.3",
     "nuxt": "^2.15.8"
   },
   "devDependencies": {

@@ -4,8 +4,8 @@ export default function flexDiv(editor) {
   editor.BlockManager.add('flex-div', {
     id: 'flex-div',
     label: '<b>フレックスボックス</b>',
-    // content: '<div data-gjs-type="text">Insert your text here</div>'
-    content: `<flex-div></flex-div>`
+    content: `<flex-div></flex-div>`,
+    media: "<img src='/collage.svg' />"
   })
   editor.DomComponents.addType('flex-div', {
     isComponent: (el) => el.tagName === 'FLEX-DIV',
@@ -15,8 +15,16 @@ export default function flexDiv(editor) {
         traits: [
           {
             type: 'number',
+            name: 'width',
+            label: '横幅(%)',
+            min: 0,
+            max: 100,
+            default: 100
+          },
+          {
+            type: 'number',
             name: 'height',
-            label: '高さ',
+            label: '高さ(px)',
             default: 150
           },
           {
