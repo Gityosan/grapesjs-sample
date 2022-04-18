@@ -1,10 +1,5 @@
-// .panels {
-//   border-radius: unset;
-//   box-shadow: none;
-// }
-
 #gjs {
-  margin: 16px;
+  // margin: 16px;
 }
 .gjs-one-bg {
   background-color: #fff;
@@ -66,4 +61,14 @@
 }
 .gjs-field-checkbox input:checked + .gjs-chk-icon {
   border-color: #444;
+}
+#layers {
+  overflow-x: scroll;
+  overflow-y: overlay;
+}
+.gjs-layer,
+.gjs-layer-title {
+  color: #444;
+  background-color: #f7f5f5;
+  font-weight: bold;
 }

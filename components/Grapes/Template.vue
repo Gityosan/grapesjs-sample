@@ -1,7 +1,15 @@
 <template>
-  <div class="d-flex">
-    <div id="gjs">
-      <!-- <grapesjs-frame> -->
+  <div class="editor_frame">
+    <div
+      id="gjs"
+      :class="[
+        {
+          vertical_frame: $store.getters.frameDirection,
+          landscape_frame: !$store.getters.frameDirection
+        },
+        'ma-4'
+      ]"
+    >
       <flex-div>
         <form-title width="200" height="100" text="タイトル"></form-title>
       </flex-div>
@@ -37,7 +45,6 @@
           <border-box text="住所" width="350"></border-box>
           <border-box text="東京都横浜市湘南天神1-1" width="500"></border-box>
         </flex-div> -->
-      <!-- </grapesjs-frame> -->
     </div>
     <v-card
       :class="[
@@ -79,6 +86,9 @@
         <v-tab>
           <v-icon>mdi-form-select</v-icon>
         </v-tab>
+        <v-tab>
+          <v-icon>mdi-layers-outline</v-icon>
+        </v-tab>
       </v-tabs>
       <div v-show="tab === 0" id="traits"></div>
       <div v-show="tab === 1" id="blocks"></div>
@@ -116,6 +126,7 @@
           </v-btn>
         </v-card>
       </div>
+      <div v-show="tab === 3" id="layers"></div>
     </v-card>
   </div>
 </template>
@@ -149,6 +160,9 @@ export default {
       styleManager: false,
       traitManager: {
         appendTo: '#traits'
+      },
+      layerManager: {
+        appendTo: '#layers'
       },
       // コンポーネント登録場所
       blockManager: {
@@ -256,25 +270,49 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.vertical_frame {
-  width: 600px !important;
-  height: 848.4px !important;
-}
+.editor_frame {
+  display: flex;
+  flex-flow: column nowrap;
 
-.landscape_frame {
-  width: 848.4px !important;
-  height: 600px !important;
-}
+  .vertical_frame {
+    width: 600px !important;
+    height: 848.4px !important;
+  }
 
-.vertical_panels {
-  width: calc(100% - 600px - 48px);
-  border-radius: unset;
-  box-shadow: none;
-}
+  .landscape_frame {
+    width: 848.4px !important;
+    height: 600px !important;
+  }
 
-.landscape_panels {
-  width: calc(100% - 848.4px - 48px);
-  border-radius: unset;
-  box-shadow: none;
+  .vertical_panels {
+    width: calc(100% - 32px);
+    min-height: 600px;
+    margin-left: 16px;
+    border-radius: unset;
+    box-shadow: none;
+  }
+
+  .landscape_panels {
+    width: calc(100% - 32px);
+    min-height: 600px;
+    margin-left: 16px;
+    border-radius: unset;
+    box-shadow: none;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .editor_frame {
+    flex-flow: row wrap;
+
+    .vertical_panels {
+      width: calc(100% - 600px - 48px);
+      margin-left: 0;
+    }
+
+    .landscape_panels {
+      width: calc(100% - 848.4px - 48px);
+      margin-left: 0;
+    }
+  }
 }
 </style>
