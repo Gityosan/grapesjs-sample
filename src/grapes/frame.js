@@ -16,9 +16,7 @@ export default function grapesjsFrame(editor) {
           {
             type: 'number',
             name: 'width',
-            label: '横幅(%)',
-            // min: 0,
-            // max: 100,
+            label: '横幅(px)',
             default: 100
           },
           {

@@ -17,12 +17,6 @@ export default function borderBox(editor) {
         tagName: 'border-box',
         traits: [
           {
-            type: 'text',
-            name: 'text',
-            label: '文言',
-            default: 'ここに入力'
-          },
-          {
             type: 'number',
             name: 'width',
             label: '横幅',
@@ -35,8 +29,36 @@ export default function borderBox(editor) {
             default: 40
           },
           {
+            type: 'number',
+            name: 'padding',
+            label: 'パディング(px)',
+            default: 0
+          },
+          {
+            type: 'text',
+            name: 'text',
+            label: '文言',
+            default: ''
+          },
+          {
+            type: 'number',
+            name: 'fontsize',
+            label: 'フォントの大きさ',
+            default: 16
+          },
+          {
             type: 'select',
-            name: 'textAlign',
+            name: 'oneline',
+            label: '1行かどうか',
+            default: '1行',
+            options: [
+              { id: 'one', name: '1行' },
+              { id: 'over', name: '2行以上' }
+            ]
+          },
+          {
+            type: 'select',
+            name: 'textalign',
             label: '揃え位置',
             default: 'center',
             options: [
@@ -51,7 +73,7 @@ export default function borderBox(editor) {
           },
           {
             type: 'select',
-            name: 'backgroundColor',
+            name: 'backgroundcolor',
             label: '背景色',
             options: [
               { id: '#ffffff', name: '白' },

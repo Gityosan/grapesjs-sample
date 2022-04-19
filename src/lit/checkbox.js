@@ -5,7 +5,7 @@ export default class CheckBox extends LitElement {
     width: { type: Number },
     height: { type: Number },
     checkbox: { type: Boolean },
-    accentColor: { type: String }
+    accentcolor: { type: String }
   }
 
   constructor() {
@@ -13,7 +13,7 @@ export default class CheckBox extends LitElement {
     this.width = 20
     this.height = 20
     this.checkbox = true
-    this.accentColor = 'black'
+    this.accentcolor = 'black'
   }
 
   connectedCallback() {
@@ -29,7 +29,7 @@ export default class CheckBox extends LitElement {
           height: ${this.height}px;
           margin: 0;
           padding: 0;
-          accent-color: ${this.accentColor};
+          accent-color: ${this.accentcolor};
         }
       </style>
     `
@@ -50,7 +50,7 @@ export default class CheckBox extends LitElement {
   // cp=changedProperties
   willUpdate(cp) {
     if (
-      cp.has('accentColor') ||
+      cp.has('accentcolor') ||
       cp.has('checkbox') ||
       cp.has('width') ||
       cp.has('height')

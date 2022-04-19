@@ -33,7 +33,7 @@ export default function sampleButton(editor) {
           },
           {
             type: 'select',
-            name: 'accentColor',
+            name: 'accentcolor',
             label: '背景色',
             options: [
               { id: '#ffffff', name: '白' },

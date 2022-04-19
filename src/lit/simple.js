@@ -1,26 +1,46 @@
 import { html, LitElement } from 'lit'
 
-export default class SimpleGreeting extends LitElement {
+export default class SimpleText extends LitElement {
   static properties = {
-    name: { type: String }
+    text: { type: String },
+    fontsize: { type: Number },
+    lineheight: { type: Number }
   }
 
   constructor() {
     super()
-    this.name = 'Somebody'
-    this.styles = html`
+    this.text = 'Somebody'
+    this.fontsize = 16
+    this.lineheight = 1.5
+  }
+
+  connectedCallback() {
+    super.connectedCallback()
+    this.styles = this.returnStyle()
+  }
+
+  returnStyle() {
+    return html`
       <style>
-        p {
-          color: blue;
-          font-size: 25px;
+        .text {
+          color: black;
+          font-size: ${this.fontsize}px;
+          line-height: ${this.lineheight};
+          margin: 0;
         }
       </style>
     `
   }
 
+  willUpdate(cp) {
+    if (cp.has('fontsize') || cp.has('lineheight')) {
+      this.styles = this.returnStyle()
+    }
+  }
+
   render() {
     return html`${this.styles}
-      <p>Hello, ${this.name}!</p>`
+      <p class="text">${this.text}</p>`
   }
 }
-customElements.define('simple-greeting', SimpleGreeting)
+customElements.define('simple-text', SimpleText)

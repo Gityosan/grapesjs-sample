@@ -33,13 +33,13 @@ export default function formTitle(editor) {
           },
           {
             type: 'number',
-            name: 'fontSize',
+            name: 'fontsize',
             label: 'フォントの大きさ',
             default: 36
           },
           {
             type: 'select',
-            name: 'textAlign',
+            name: 'textalign',
             label: '揃え位置',
             default: 'center',
             options: [
@@ -54,7 +54,7 @@ export default function formTitle(editor) {
           },
           {
             type: 'select',
-            name: 'backgroundColor',
+            name: 'backgroundcolor',
             label: '背景色',
             default: '#ffffff',
             options: [

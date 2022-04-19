@@ -25,7 +25,8 @@
     "jspdf": "^2.5.1",
     "lit": "^2.0.2",
     "nodemailer": "^6.7.3",
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "nuxt-stripe-module": "^3.2.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",

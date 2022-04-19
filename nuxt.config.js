@@ -45,8 +45,15 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-stripe-module'
   ],
+
+  stripe: {
+    version: '2020-08-27', // versionは固定にしておいた方が無難です。
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    locale: 'ja'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   proxy: {

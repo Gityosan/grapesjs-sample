@@ -17,22 +17,22 @@
         <border-box
           text="品目・品名"
           width="150"
-          backgroundColor="#F3E9DD"
+          backgroundcolor="#F3E9DD"
         ></border-box>
         <border-box
           text="数量"
           width="50"
-          backgroundColor="#F3E9DD"
+          backgroundcolor="#F3E9DD"
         ></border-box>
         <border-box
           text="単価"
           width="50"
-          backgroundColor="#F3E9DD"
+          backgroundcolor="#F3E9DD"
         ></border-box>
         <border-box
           text="金額"
           width="50"
-          backgroundColor="#F3E9DD"
+          backgroundcolor="#F3E9DD"
         ></border-box>
       </flex-div>
       <flex-div v-for="i in 4" :key="i" height="42">
@@ -100,7 +100,6 @@
           <v-btn
             class="my-2"
             width="100%"
-            append="mdi-trash-can-outline"
             @click="selectTemplate(item.page_id)"
           >
             {{ item.title }}
@@ -144,7 +143,8 @@ export default {
     pages: [],
     title: '',
     frameHeight: 0,
-    frameWidth: 0
+    frameWidth: 0,
+    setComponents: null
   }),
   async mounted() {
     this.editor = grapesjs.init({
@@ -168,13 +168,13 @@ export default {
       blockManager: {
         appendTo: '#blocks',
         blocks: [
-          {
-            id: 'text',
-            label: '<b>シンプルなテキスト</b>',
-            attributes: { class: 'gjs-block-section' },
-            content: '<div data-gjs-type="text">ここにテキストを入力</div>',
-            media: "<img src='/pencil.svg' />"
-          },
+          // {
+          //   id: 'text',
+          //   label: '<b>シンプルなテキスト</b>',
+          //   attributes: { class: 'gjs-block-section' },
+          //   content: '<div data-gjs-type="text">ここにテキストを入力</div>',
+          //   media: "<img src='/pencil.svg' />"
+          // },
           {
             id: 'image',
             label: '<b>画像</b>',
@@ -187,7 +187,15 @@ export default {
       assetManager: {
         noAssets: '画像がありません',
         showUrlInput: false,
-        assets: ['xscore_logo.png']
+        assets: [
+          {
+            type: 'image',
+            src: 'icon_small.png',
+            unitDim: 'px',
+            height: 50,
+            width: 50
+          }
+        ]
       }
     })
     await this.readTemplate()
@@ -200,9 +208,15 @@ export default {
         headers: { 'X-MICROCMS-API-KEY': this.$config.MICROCMS_API_KEY }
       }
     },
-    toHtml() {
-      console.log(this.editor.getHtml())
-    },
+    // getWrapper() {
+    //   console.log(this.editor.getHtml())
+
+    //   this.setComponents = this.editor.getComponents()
+    //   console.log(this.setComponents)
+    // },
+    // setComponent() {
+    //   this.editor.setComponents(this.setComponents)
+    // },
     selectTemplate(id) {
       this.editor.Pages.select(id)
     },

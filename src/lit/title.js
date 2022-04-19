@@ -3,10 +3,10 @@ import { html, LitElement } from 'lit'
 export default class Title extends LitElement {
   static properties = {
     text: { type: String },
-    textAlign: { type: String },
-    backgroundColor: { type: String },
-    fontSize: { type: Number },
-    fontColor: { type: String },
+    textalign: { type: String },
+    backgroundcolor: { type: String },
+    fontsize: { type: Number },
+    fontcolor: { type: String },
     width: { type: Number },
     height: { type: Number },
     underbar: { type: String }
@@ -15,12 +15,12 @@ export default class Title extends LitElement {
   constructor() {
     super()
     this.text = 'タイトル'
-    this.textAlign = 'center'
+    this.textalign = 'center'
     this.width = 100
     this.height = 40
-    this.fontSize = 36
-    this.fontColor = 'transparent'
-    this.backgroundColor = '#ffffff'
+    this.fontsize = 36
+    this.fontcolor = 'transparent'
+    this.backgroundcolor = '#ffffff'
     this.underbar = '1px solid black'
   }
 
@@ -36,11 +36,11 @@ export default class Title extends LitElement {
           display: inline-block;
           width: ${this.width}px;
           height: ${this.height}px;
-          text-align: ${this.textAlign};
+          text-align: ${this.textalign};
           line-height: ${this.height}px;
-          font-size: ${this.fontSize}px;
+          font-size: ${this.fontsize}px;
           border-bottom: ${this.underbar};
-          background-color: ${this.backgroundColor};
+          background-color: ${this.backgroundcolor};
           margin: 0;
         }
       </style>
@@ -49,11 +49,12 @@ export default class Title extends LitElement {
 
   willUpdate(cp) {
     if (
-      cp.has('fontSize') ||
       cp.has('width') ||
-      cp.has('backgroundColor') ||
       cp.has('height') ||
-      cp.has('textAlign')
+      cp.has('fontsize') ||
+      cp.has('textalign') ||
+      cp.has('backgroundcolor') ||
+      cp.has('underbar')
     ) {
       this.styles = this.returnStyle()
     }

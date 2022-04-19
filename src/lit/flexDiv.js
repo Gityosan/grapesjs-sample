@@ -3,21 +3,23 @@ import { html, LitElement } from 'lit'
 export default class FlexDiv extends LitElement {
   static properties = {
     width: { type: Number },
+    widthunit: { type: String },
     height: { type: Number },
-    justifyContent: { type: String },
-    alignItems: { type: String },
-    flexDirection: { type: String },
-    flexWrap: { type: String }
+    justifycontent: { type: String },
+    alignitems: { type: String },
+    flexdirection: { type: String },
+    flexwrap: { type: String }
   }
 
   constructor() {
     super()
     this.width = 100
+    this.widthunit = '%'
     this.height = 200
-    this.justifyContent = 'center'
-    this.alignItems = 'center'
-    this.flexDirection = 'row'
-    this.flexWrap = 'wrap'
+    this.justifycontent = 'center'
+    this.alignitems = 'center'
+    this.flexdirection = 'row'
+    this.flexwrap = 'wrap'
   }
 
   connectedCallback() {
@@ -29,14 +31,14 @@ export default class FlexDiv extends LitElement {
     return html`
       <style>
         .flex {
-          width: ${this.width}%;
+          width: ${this.width + this.widthunit};
           min-width: 50px;
           display: flex;
-          justify-content: ${this.justifyContent};
-          align-items: ${this.alignItems};
+          justify-content: ${this.justifycontent};
+          align-items: ${this.alignitems};
           height: ${this.height}px;
-          flex-direction: ${this.flexDirection};
-          flex-wrap: ${this.flexWrap};
+          flex-direction: ${this.flexdirection};
+          flex-wrap: ${this.flexwrap};
         }
         .flex:hover {
           background-color: #f7f5f5;
@@ -49,11 +51,12 @@ export default class FlexDiv extends LitElement {
   willUpdate(cp) {
     if (
       cp.has('width') ||
+      cp.has('widthunit') ||
       cp.has('height') ||
-      cp.has('justifyContent') ||
-      cp.has('alignItems') ||
-      cp.has('flexDirection') ||
-      cp.has('flexWrap')
+      cp.has('justifycontent') ||
+      cp.has('alignitems') ||
+      cp.has('flexdirection') ||
+      cp.has('flexwrap')
     ) {
       this.styles = this.returnStyle()
     }

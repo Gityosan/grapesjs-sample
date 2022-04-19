@@ -16,10 +16,19 @@ export default function flexDiv(editor) {
           {
             type: 'number',
             name: 'width',
-            label: '横幅(%)',
-            min: 0,
-            max: 100,
+            label: '横幅(px)',
             default: 100
+          },
+          {
+            type: 'select',
+            name: 'widthunit',
+            label: '横幅の単位',
+            default: '%',
+            options: [
+              // Array of options id=value/name=label
+              { id: '%', name: '%' },
+              { id: 'px', name: 'px' }
+            ]
           },
           {
             type: 'number',
@@ -29,7 +38,7 @@ export default function flexDiv(editor) {
           },
           {
             type: 'select',
-            name: 'justifyContent',
+            name: 'justifycontent',
             label: 'justify-content',
             default: 'center',
             options: [
@@ -44,7 +53,7 @@ export default function flexDiv(editor) {
           },
           {
             type: 'select',
-            name: 'alignItems',
+            name: 'alignitems',
             label: 'align-items',
             default: 'center',
             options: [
@@ -57,7 +66,7 @@ export default function flexDiv(editor) {
           },
           {
             type: 'select',
-            name: 'flexDirection',
+            name: 'flexdirection',
             label: 'flex-direction',
             default: 'row',
             options: [
@@ -67,7 +76,7 @@ export default function flexDiv(editor) {
           },
           {
             type: 'select',
-            name: 'flexWrap',
+            name: 'flexwrap',
             label: 'flex-wrap',
             default: 'wrap',
             options: [

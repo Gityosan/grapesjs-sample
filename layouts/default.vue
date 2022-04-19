@@ -85,10 +85,15 @@ export default {
         icon: 'mdi-home',
         path: '/'
       },
+      // {
+      //   title: 'メール送信',
+      //   icon: 'mdi-email-multiple-outline',
+      //   path: '/mailer'
+      // },
       {
-        title: 'メール送信',
-        icon: 'mdi-email-multiple-outline',
-        path: '/mailer'
+        title: '決済',
+        icon: 'mdi-credit-card-outline',
+        path: '/payment'
       }
     ]
   })
