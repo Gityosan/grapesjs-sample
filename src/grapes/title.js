@@ -17,7 +17,7 @@ export default function formTitle(editor) {
             type: 'text',
             name: 'text',
             label: 'タイトル',
-            default: '御見積書'
+            default: 'タイトル'
           },
           {
             type: 'number',

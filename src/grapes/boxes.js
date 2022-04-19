@@ -50,7 +50,7 @@ export default function borderBox(editor) {
             type: 'select',
             name: 'oneline',
             label: '1行かどうか',
-            default: '1行',
+            default: 'one',
             options: [
               { id: 'one', name: '1行' },
               { id: 'over', name: '2行以上' }

@@ -11,6 +11,17 @@
       ]"
     >
       <flex-div>
+        <form-title
+          width="400"
+          height="100"
+          text="ここは編集画面です。"
+        ></form-title>
+      </flex-div>
+      <simple-text text="このまま編集を開始するか"></simple-text>
+      <simple-text
+        text="テンプレートを選んで編集を開始して下さい。"
+      ></simple-text>
+      <!-- <flex-div>
         <form-title width="200" height="100" text="タイトル"></form-title>
       </flex-div>
       <flex-div height="42">
@@ -40,7 +51,7 @@
         <border-box text="" width="50"></border-box>
         <border-box text="" width="50"></border-box>
         <border-box text="" width="50"></border-box>
-      </flex-div>
+      </flex-div> -->
       <!-- <flex-div height="42">
           <border-box text="住所" width="350"></border-box>
           <border-box text="東京都横浜市湘南天神1-1" width="500"></border-box>
@@ -143,8 +154,7 @@ export default {
     pages: [],
     title: '',
     frameHeight: 0,
-    frameWidth: 0,
-    setComponents: null
+    frameWidth: 0
   }),
   async mounted() {
     this.editor = grapesjs.init({
@@ -208,15 +218,6 @@ export default {
         headers: { 'X-MICROCMS-API-KEY': this.$config.MICROCMS_API_KEY }
       }
     },
-    // getWrapper() {
-    //   console.log(this.editor.getHtml())
-
-    //   this.setComponents = this.editor.getComponents()
-    //   console.log(this.setComponents)
-    // },
-    // setComponent() {
-    //   this.editor.setComponents(this.setComponents)
-    // },
     selectTemplate(id) {
       this.editor.Pages.select(id)
     },

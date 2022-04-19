@@ -26,10 +26,14 @@ export default function borderBox(editor) {
             default: 16
           },
           {
-            type: 'checkbox',
+            type: 'select',
             name: 'oneline',
             label: '1行かどうか',
-            default: true
+            default: 'one',
+            options: [
+              { id: 'one', name: '1行' },
+              { id: 'over', name: '2行以上' }
+            ]
           },
           {
             type: 'number',
