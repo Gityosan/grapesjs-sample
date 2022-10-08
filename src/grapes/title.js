@@ -1,23 +1,23 @@
-export default function formTitle(editor) {
+export default function atomTitle(editor) {
   const config = editor.getConfig()
   config.forceClass = 0
-  editor.BlockManager.add('form-title', {
-    id: 'form-title',
+  editor.BlockManager.add('atom-title', {
+    id: 'atom-title',
     label: '<b>タイトル</b>',
-    content: `<form-title></form-title>`,
+    content: `<atom-title></atom-title>`,
     media: "<img src='/pencil.svg' />"
   })
-  editor.DomComponents.addType('form-title', {
-    isComponent: (el) => el.tagName === 'FORM-TITLE',
+  editor.DomComponents.addType('atom-title', {
+    isComponent: (el) => el.tagName === 'ATOM-TITLE',
     model: {
       defaults: {
-        tagName: 'form-title',
+        tagName: 'atom-title',
         traits: [
           {
             type: 'text',
             name: 'text',
             label: 'タイトル',
-            default: 'タイトル'
+            default: '御見積書'
           },
           {
             type: 'number',

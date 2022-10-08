@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit'
 
-export default class FlexDiv extends LitElement {
+export default class flexBox extends LitElement {
   static properties = {
     width: { type: Number },
     widthunit: { type: String },
@@ -71,4 +71,4 @@ export default class FlexDiv extends LitElement {
     `
   }
 }
-customElements.define('flex-div', FlexDiv)
+customElements.define('flex-box', flexBox)

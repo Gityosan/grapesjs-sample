@@ -1,17 +1,17 @@
-export default function borderBox(editor) {
+export default function simpleBox(editor) {
   const config = editor.getConfig()
   config.forceClass = 0
-  editor.BlockManager.add('border-box', {
-    id: 'border-box',
+  editor.BlockManager.add('simple-box', {
+    id: 'simple-box',
     label: '<b>シンプルなボックス</b>',
-    content: `<border-box></border-box>`,
+    content: `<simple-box></simple-box>`,
     media: "<img src='/cube-outline.svg' />"
   })
-  editor.DomComponents.addType('border-box', {
-    isComponent: (el) => el.tagName === 'BORDER-BOX',
+  editor.DomComponents.addType('simple-box', {
+    isComponent: (el) => el.tagName === 'SIMPLE-BOX',
     model: {
       defaults: {
-        tagName: 'border-box',
+        tagName: 'simple-box',
         traits: [
           {
             type: 'text',
@@ -26,14 +26,11 @@ export default function borderBox(editor) {
             default: 16
           },
           {
-            type: 'select',
-            name: 'oneline',
+            type: 'checkbox',
+            name: 'lineheight',
             label: '1行かどうか',
-            default: 'one',
-            options: [
-              { id: 'one', name: '1行' },
-              { id: 'over', name: '2行以上' }
-            ]
+            valueTrue: 'true',
+            valueFalse: ''
           },
           {
             type: 'number',

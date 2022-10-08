@@ -1,17 +1,17 @@
-export default function flexDiv(editor) {
+export default function flexBox(editor) {
   const config = editor.getConfig()
   config.forceClass = 0
-  editor.BlockManager.add('flex-div', {
-    id: 'flex-div',
+  editor.BlockManager.add('flex-box', {
+    id: 'flex-box',
     label: '<b>フレックスボックス</b>',
-    content: `<flex-div></flex-div>`,
+    content: `<flex-box></flex-box>`,
     media: "<img src='/collage.svg' />"
   })
-  editor.DomComponents.addType('flex-div', {
-    isComponent: (el) => el.tagName === 'FLEX-DIV',
+  editor.DomComponents.addType('flex-box', {
+    isComponent: (el) => el.tagName === 'FLEX-BOX',
     model: {
       defaults: {
-        tagName: 'flex-div',
+        tagName: 'flex-box',
         traits: [
           {
             type: 'number',

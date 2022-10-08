@@ -1,17 +1,17 @@
-export default function grapesjsFrame(editor) {
+export default function layoutBox(editor) {
   const config = editor.getConfig()
   config.forceClass = 0
-  editor.BlockManager.add('layout-frame', {
-    id: 'layout-frame',
-    label: '<b>レイアウト用ボックス</b>',
-    content: `<layout-frame></layout-frame>`,
+  editor.BlockManager.add('layout-box', {
+    id: 'layout-box',
+    label: '<b>レイアウトボックス</b>',
+    content: `<layout-box></layout-box>`,
     media: "<img src='/collage.svg' />"
   })
-  editor.DomComponents.addType('layout-frame', {
-    isComponent: (el) => el.tagName === 'LAYOUT-FRAME',
+  editor.DomComponents.addType('layout-box', {
+    isComponent: (el) => el.tagName === 'LAYOUT-BOX',
     model: {
       defaults: {
-        tagName: 'layout-frame',
+        tagName: 'layout-box',
         traits: [
           {
             type: 'number',

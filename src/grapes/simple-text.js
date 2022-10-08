@@ -1,4 +1,4 @@
-export default function simpleGreeting(editor) {
+export default function simpleText(editor) {
   const config = editor.getConfig()
   config.forceClass = 0
   editor.BlockManager.add('simple-text', {

@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit'
 
-export default class Frame extends LitElement {
+export default class layoutBox extends LitElement {
   static properties = {
     width: { type: Number },
     height: { type: Number },
@@ -59,4 +59,4 @@ export default class Frame extends LitElement {
     }
   }
 }
-customElements.define('layout-frame', Frame)
+customElements.define('layout-box', layoutBox)

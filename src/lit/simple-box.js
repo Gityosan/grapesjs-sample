@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit'
 
-export default class TextBox extends LitElement {
+export default class simpleBox extends LitElement {
   static properties = {
     text: { type: String },
     fontsize: { type: Number },
@@ -10,12 +10,12 @@ export default class TextBox extends LitElement {
     height: { type: Number },
     padding: { type: Number },
     border: { type: String },
-    oneline: { type: String }
+    lineheight: { type: String }
   }
 
   constructor() {
     super()
-    this.text = 'This is Lit Component.'
+    this.text = ''
     this.fontsize = 16
     this.width = 100
     this.height = 40
@@ -23,7 +23,7 @@ export default class TextBox extends LitElement {
     this.textalign = 'center'
     this.backgroundcolor = '#ffffff'
     this.border = '1px solid black'
-    this.oneline = 'one'
+    this.lineheight = 'true'
   }
 
   render() {
@@ -48,7 +48,9 @@ export default class TextBox extends LitElement {
           display: inline-block;
           font-size: ${this.fontsize}px;
           text-align: ${this.textalign};
-          line-height: ${this.oneline === 'one' ? this.height + 'px' : '1.5'};
+          line-height: ${this.lineheight === 'true'
+            ? this.height + 'px'
+            : '1.5'};
           color: #262626;
           background-color: ${this.backgroundcolor};
           border: ${this.border};
@@ -71,11 +73,11 @@ export default class TextBox extends LitElement {
       cp.has('backgroundcolor') ||
       cp.has('border') ||
       cp.has('height') ||
-      cp.has('oneline') ||
+      cp.has('lineheight') ||
       cp.has('padding')
     ) {
       this.styles = this.returnStyle()
     }
   }
 }
-customElements.define('border-box', TextBox)
+customElements.define('simple-box', simpleBox)

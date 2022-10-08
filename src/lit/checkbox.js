@@ -4,7 +4,7 @@ export default class CheckBox extends LitElement {
   static properties = {
     width: { type: Number },
     height: { type: Number },
-    checkbox: { type: Boolean },
+    checkbox: { type: String },
     accentcolor: { type: String }
   }
 
@@ -12,7 +12,7 @@ export default class CheckBox extends LitElement {
     super()
     this.width = 20
     this.height = 20
-    this.checkbox = true
+    this.checkbox = 'true'
     this.accentcolor = 'black'
   }
 
@@ -41,8 +41,8 @@ export default class CheckBox extends LitElement {
       <input
         type="checkbox"
         class="checkbox"
-        value=${this.checkbox}
-        .checked=${this.checkbox}
+        value=${this.checkbox === 'true'}
+        .checked=${this.checkbox === 'true'}
       />
     `
   }

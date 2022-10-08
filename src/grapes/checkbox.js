@@ -29,7 +29,8 @@ export default function sampleButton(editor) {
             type: 'checkbox',
             name: 'checkbox',
             label: 'チェックの有無',
-            default: true
+            valueTrue: 'true',
+            valueFalse: ''
           },
           {
             type: 'select',

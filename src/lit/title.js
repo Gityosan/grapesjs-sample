@@ -67,4 +67,4 @@ export default class Title extends LitElement {
     `
   }
 }
-customElements.define('form-title', Title)
+customElements.define('atom-title', Title)
