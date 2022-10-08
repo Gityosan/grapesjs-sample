@@ -1,7 +1,7 @@
 import html2canvas from 'html2canvas'
 import { jsPDF as JSPDF } from 'jspdf'
 export const state = () => ({
-  frameDirection: true
+  frameDirection: false
 })
 
 export const mutations = {
